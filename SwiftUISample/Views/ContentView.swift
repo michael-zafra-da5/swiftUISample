@@ -35,7 +35,7 @@ struct ContentView: View {
                 angle += 45
                 self.viewModel.buttonTap()
             } label: {
-//                Text("Update")
+                //                Text("Update")
                 Image("send")
                     .frame(width: 20,
                            height: 20,
@@ -43,11 +43,11 @@ struct ContentView: View {
                     .padding()
                     .background(Color.red)
                     .clipShape(Circle())
-//                Text("Update")
-//                    .font(Font.custom("montserrat_medium", size: 18))
+                //                Text("Update")
+                //                    .font(Font.custom("montserrat_medium", size: 18))
             }
-//            .scaleEffect(viewModel.showList ? 1.3 : 1.0)
-//            .scaleEffect(scale)
+            //            .scaleEffect(viewModel.showList ? 1.3 : 1.0)
+            //            .scaleEffect(scale)
             .rotationEffect(.degrees(angle))
             .animation(.easeIn, value: angle)
             
@@ -57,16 +57,39 @@ struct ContentView: View {
                 }
                 .listStyle(.grouped)
             } else {
-                Text("List is hidden")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .frame(maxHeight: .infinity)
+                List {
+                    ForEach(0..<viewModel.users.count) { index in
+                        let user = viewModel.users[index]
+                        HStack(alignment: .center) {
+                            ImageView(withURL: user.avatar)
+                            Text("\(user.first_name) \(user.last_name)")
+                        }
+                    }
+                }
+                .listStyle(.grouped)
             }
         }
         .frame(minWidth: 0,
                maxWidth: .infinity,
                minHeight: 0,
                maxHeight: .infinity)
+        .onAppear() {
+            viewModel.getUsers(page: 1,completion: { response in
+                print("getuser response: \(response)")
+                viewModel.setUsers(users: response.data)
+            })
+            
+            viewModel.getAppVer(platform: 1, then: {
+                result in
+                switch result {
+                case .success(let data):
+                  print("we have new data!")
+                    viewModel.readVersion(data: data)
+                case .failure(let error):
+                  print("we have an error! \(error)")
+                }
+              })
+        }
     }
     
     private func AnimalRow(animal: Animal) -> some View {

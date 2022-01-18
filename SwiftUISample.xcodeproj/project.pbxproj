@@ -19,6 +19,9 @@
 		FF324EB527951601007F4B5B /* qbettercomicsan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF324EB427951601007F4B5B /* qbettercomicsan.ttf */; };
 		FF324EBD27951FDD007F4B5B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324EBC27951FDD007F4B5B /* DetailView.swift */; };
 		FF324EBF27953AF0007F4B5B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324EBE27953AF0007F4B5B /* HomeViewModel.swift */; };
+		FF93399F27964B4F00CE47CB /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF93399E27964B4F00CE47CB /* ListResponse.swift */; };
+		FF9339A1279659A500CE47CB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9339A0279659A400CE47CB /* ImageLoader.swift */; };
+		FF9339A32796631A00CE47CB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9339A22796631A00CE47CB /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		FF324EBA27951973007F4B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF324EBC27951FDD007F4B5B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FF324EBE27953AF0007F4B5B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FF93399E27964B4F00CE47CB /* ListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
+		FF9339A0279659A400CE47CB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		FF9339A22796631A00CE47CB /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 		FF324EAA27950022007F4B5B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FF93399E27964B4F00CE47CB /* ListResponse.swift */,
 				FF324EAB27950039007F4B5B /* Animal.swift */,
 			);
 			path = Models;
@@ -155,6 +162,7 @@
 			children = (
 				FF324E822794FD30007F4B5B /* ContentView.swift */,
 				FF324EBC27951FDD007F4B5B /* DetailView.swift */,
+				FF9339A22796631A00CE47CB /* ImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				FF324EB02795149F007F4B5B /* Fonts */,
+				FF9339A0279659A400CE47CB /* ImageLoader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -316,8 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9339A32796631A00CE47CB /* ImageView.swift in Sources */,
+				FF9339A1279659A500CE47CB /* ImageLoader.swift in Sources */,
 				FF324E832794FD30007F4B5B /* ContentView.swift in Sources */,
 				FF324EBD27951FDD007F4B5B /* DetailView.swift in Sources */,
+				FF93399F27964B4F00CE47CB /* ListResponse.swift in Sources */,
 				FF324E812794FD30007F4B5B /* SwiftUISampleApp.swift in Sources */,
 				FF324EBF27953AF0007F4B5B /* HomeViewModel.swift in Sources */,
 				FF324EAC27950039007F4B5B /* Animal.swift in Sources */,
