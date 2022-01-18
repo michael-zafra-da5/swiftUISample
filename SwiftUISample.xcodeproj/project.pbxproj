@@ -14,6 +14,11 @@
 		FF324E922794FD32007F4B5B /* SwiftUISampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324E912794FD32007F4B5B /* SwiftUISampleTests.swift */; };
 		FF324E9C2794FD32007F4B5B /* SwiftUISampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324E9B2794FD32007F4B5B /* SwiftUISampleUITests.swift */; };
 		FF324E9E2794FD32007F4B5B /* SwiftUISampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324E9D2794FD32007F4B5B /* SwiftUISampleUITestsLaunchTests.swift */; };
+		FF324EAC27950039007F4B5B /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324EAB27950039007F4B5B /* Animal.swift */; };
+		FF324EB2279514B0007F4B5B /* montserrat_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF324EB1279514B0007F4B5B /* montserrat_medium.ttf */; };
+		FF324EB527951601007F4B5B /* qbettercomicsan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF324EB427951601007F4B5B /* qbettercomicsan.ttf */; };
+		FF324EBD27951FDD007F4B5B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324EBC27951FDD007F4B5B /* DetailView.swift */; };
+		FF324EBF27953AF0007F4B5B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF324EBE27953AF0007F4B5B /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,12 @@
 		FF324E972794FD32007F4B5B /* SwiftUISampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUISampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF324E9B2794FD32007F4B5B /* SwiftUISampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleUITests.swift; sourceTree = "<group>"; };
 		FF324E9D2794FD32007F4B5B /* SwiftUISampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF324EAB27950039007F4B5B /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		FF324EB1279514B0007F4B5B /* montserrat_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = montserrat_medium.ttf; sourceTree = "<group>"; };
+		FF324EB427951601007F4B5B /* qbettercomicsan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = qbettercomicsan.ttf; sourceTree = "<group>"; };
+		FF324EBA27951973007F4B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF324EBC27951FDD007F4B5B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		FF324EBE27953AF0007F4B5B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +105,14 @@
 		FF324E7F2794FD30007F4B5B /* SwiftUISample */ = {
 			isa = PBXGroup;
 			children = (
+				FF324EAF27951497007F4B5B /* Utils */,
+				FF324EAE27950D1E007F4B5B /* ViewModel */,
+				FF324EAD27950D18007F4B5B /* Views */,
+				FF324EAA27950022007F4B5B /* Models */,
 				FF324E802794FD30007F4B5B /* SwiftUISampleApp.swift */,
-				FF324E822794FD30007F4B5B /* ContentView.swift */,
 				FF324E842794FD32007F4B5B /* Assets.xcassets */,
 				FF324E862794FD32007F4B5B /* Preview Content */,
+				FF324EBA27951973007F4B5B /* Info.plist */,
 			);
 			path = SwiftUISample;
 			sourceTree = "<group>";
@@ -125,6 +140,48 @@
 				FF324E9D2794FD32007F4B5B /* SwiftUISampleUITestsLaunchTests.swift */,
 			);
 			path = SwiftUISampleUITests;
+			sourceTree = "<group>";
+		};
+		FF324EAA27950022007F4B5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF324EAB27950039007F4B5B /* Animal.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF324EAD27950D18007F4B5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF324E822794FD30007F4B5B /* ContentView.swift */,
+				FF324EBC27951FDD007F4B5B /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF324EAE27950D1E007F4B5B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FF324EBE27953AF0007F4B5B /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FF324EAF27951497007F4B5B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FF324EB02795149F007F4B5B /* Fonts */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FF324EB02795149F007F4B5B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FF324EB427951601007F4B5B /* qbettercomicsan.ttf */,
+				FF324EB1279514B0007F4B5B /* montserrat_medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +290,8 @@
 			files = (
 				FF324E882794FD32007F4B5B /* Preview Assets.xcassets in Resources */,
 				FF324E852794FD32007F4B5B /* Assets.xcassets in Resources */,
+				FF324EB2279514B0007F4B5B /* montserrat_medium.ttf in Resources */,
+				FF324EB527951601007F4B5B /* qbettercomicsan.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF324E832794FD30007F4B5B /* ContentView.swift in Sources */,
+				FF324EBD27951FDD007F4B5B /* DetailView.swift in Sources */,
 				FF324E812794FD30007F4B5B /* SwiftUISampleApp.swift in Sources */,
+				FF324EBF27953AF0007F4B5B /* HomeViewModel.swift in Sources */,
+				FF324EAC27950039007F4B5B /* Animal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,12 +478,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUISample/Preview Content\"";
-				DEVELOPMENT_TEAM = 3GCFJ6RJM9;
+				DEVELOPMENT_TEAM = 3RDF37LU5D;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/michaelangelozafra/workspace-ios/SwiftUISample/SwiftUISample/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -434,6 +499,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.krdevteam.SwiftUISample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,12 +511,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUISample/Preview Content\"";
-				DEVELOPMENT_TEAM = 3GCFJ6RJM9;
+				DEVELOPMENT_TEAM = 3RDF37LU5D;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/michaelangelozafra/workspace-ios/SwiftUISample/SwiftUISample/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -463,6 +532,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.krdevteam.SwiftUISample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
