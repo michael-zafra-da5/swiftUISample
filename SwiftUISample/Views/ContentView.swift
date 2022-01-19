@@ -61,7 +61,13 @@ struct ContentView: View {
                     ForEach(0..<viewModel.users.count) { index in
                         let user = viewModel.users[index]
                         HStack(alignment: .center) {
-                            ImageView(withURL: user.avatar)
+                            if #available(iOS 15.0, *) {
+                                AsyncImage(url: URL(string:user.avatar))
+                                .cornerRadius(180.0/2)
+                                .frame(width: 180.0, height: 180.0)
+                            } else {
+                                ImageView(withURL: user.avatar)
+                            }
                             Text("\(user.first_name) \(user.last_name)")
                         }
                     }
