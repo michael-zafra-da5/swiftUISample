@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct SwiftUISampleApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            let viewModel = HomeViewModel()
-            ContentView()
+            let viewModel = LoginViewModel()
+            LoginView()
                 .environmentObject(viewModel)
         }
     }

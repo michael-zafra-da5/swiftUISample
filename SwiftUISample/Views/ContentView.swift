@@ -80,6 +80,7 @@ struct ContentView: View {
                minHeight: 0,
                maxHeight: .infinity)
         .onAppear() {
+            viewModel.initMessage()
             viewModel.getUsers(page: 1,completion: { response in
                 print("getuser response: \(response)")
                 viewModel.setUsers(users: response.data)

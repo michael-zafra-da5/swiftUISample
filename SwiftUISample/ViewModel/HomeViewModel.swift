@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import Firebase
 
 class HomeViewModel: ObservableObject {
     
@@ -134,5 +135,22 @@ class HomeViewModel: ObservableObject {
                 print("readVersion \(value)")
             }
         }
+    }
+    
+    func initMessage() {
+        let db = Firestore.firestore()
+        db.collection("messages").document("CeFB8Ampc3v7b8P2JWgj")
+            .addSnapshotListener { documentSnapshot, error in
+              guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+              }
+              guard let data = document.data() else {
+                print("Document data was empty.")
+                return
+              }
+              print("Current data: \(data)")
+//                self.message.text = "\(data["message"] ?? "")"
+            }
     }
 }
