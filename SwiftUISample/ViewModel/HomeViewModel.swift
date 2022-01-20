@@ -151,6 +151,17 @@ class HomeViewModel: ObservableObject {
               }
               print("Current data: \(data)")
 //                self.message.text = "\(data["message"] ?? "")"
+                
+                
+//                let developers = snapshot.documents.compactMap { (document) ->  Message? in
+//                  var x: Message? = nil
+//                    do {
+//                      x = try document.data(as: Message.self)
+//                    } catch {
+//                    print(error)
+//                    }
+//                  return x
+//                  }
             }
     }
 }

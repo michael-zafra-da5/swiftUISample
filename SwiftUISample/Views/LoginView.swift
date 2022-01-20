@@ -13,56 +13,85 @@ struct LoginView: View {
     @State var password = ""
     
     var body: some View {
-        VStack() {
-            Image("logo")
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 25,
-                       height: 25)
-            
-            VStack {
-                VStack(alignment: HorizontalAlignment.leading) {
-                    Text("Email")
-                        .foregroundColor(.black)
-                    
-                    TextField("Email", text: $email)
-                        .textFieldStyle(.roundedBorder)
-                        .multilineTextAlignment(.leading)
-                    
-                    Spacer()
-                        .frame(height: 24.0)
-
-                    Text("Password")
-                        .foregroundColor(.black)
-                    
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(.roundedBorder)
-                        .multilineTextAlignment(.leading)
-                    
-                    Spacer()
-                        .frame(height: 32.0)
-                    
-                    Button {
-                        //Action
-                    } label: {
-                        Text("Login")
-                            .foregroundColor(.white)
+        NavigationView {
+            GeometryReader { geometry in
+                let yposition = (geometry.size.height / 2) - (128)
+                
+                VStack() {
+                    VStack {
+                        Image("logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 128,
+                                   height: 128)
+                        
+                        Spacer()
+                            .frame(height: 62.0)
+                        
+                        VStack {
+                            VStack(alignment: HorizontalAlignment.leading, spacing: 4) {
+                                Text("Email")
+                                    .foregroundColor(.black)
+                                
+                                TextField("Email", text: $email)
+                                    .textFieldStyle(.roundedBorder)
+                                    .multilineTextAlignment(.leading)
+                                    .autocapitalization(.none)
+                                
+                                Spacer()
+                                    .frame(height: 18.0)
+                                
+                                Text("Password")
+                                    .foregroundColor(.black)
+                                
+                                SecureField("Password", text: $password)
+                                    .textFieldStyle(.roundedBorder)
+                                    .multilineTextAlignment(.leading)
+                                    .autocapitalization(.none)
+                                
+                                Spacer()
+                                    .frame(height: 24.0)
+                                
+                                Button {
+                                    viewModel.validate(email: email, password: password)
+                                } label: {
+                                    Text("Login")
+                                        .foregroundColor(.white)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 10.0)
+                                .background(.blue)
+                                .cornerRadius(5)
+                            }
+                            .padding(.horizontal, 20.0)
+                            .padding(.vertical, 30.0)
+                            .multilineTextAlignment(.center)
+                        }
+                        .frame(width: UIScreen.screenWidth-40, height: 250)
+                        .background(
+                            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                .fill(.white)
+                                .shadow(radius: 5))
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 10.0)
-                    .background(.blue)
-                    .cornerRadius(5)
+                    .position(x: geometry.size.width / 2, y: yposition)
+                    
+                    let homeViewModel = HomeViewModel()
+                    NavigationLink(
+                        destination: ContentView().environmentObject(homeViewModel)
+                            .navigationBarTitle("")
+                            .navigationBarHidden(true),
+                        isActive: $viewModel.openHomePage
+                    ) {
+                        EmptyView()
+                    }
                 }
-                .padding(30)
-                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // 1
+                .background(Color.init(hex: "#66b3ff"))
+                .alert(item: $viewModel.alertItem) { show in
+                    Alert(title: Text(show.title), message: Text(show.message), dismissButton: .default(Text("OK")))
+                }
             }
-            .frame(width: UIScreen.screenWidth-40)
-            .background(
-                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                    .fill(.white)
-                    .shadow(radius: 5))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity) // 1
-        .background(Color.init(hex: "#66b3ff"))
     }
 }
 
