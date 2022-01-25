@@ -129,7 +129,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func readVersion(data:Data?) {
-        print("readVersion \(data)")
+//        print("readVersion \(data)")
         if let d = data {
             if let value = String(data: d, encoding: String.Encoding.ascii) {
                 print("readVersion \(value)")

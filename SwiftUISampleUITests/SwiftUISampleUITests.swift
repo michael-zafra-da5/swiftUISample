@@ -39,4 +39,45 @@ class SwiftUISampleUITests: XCTestCase {
             }
         }
     }
+    
+    func testNavigation() throws {
+        let app = XCUIApplication()
+        let emailTextField = app.textFields["emailTF"]
+        XCTAssertTrue(emailTextField.exists, "Text field doesn't exist")
+        emailTextField.tap()
+        emailTextField.clearText(andReplaceWith: "sample@gmail.com")
+        XCTAssertEqual(emailTextField.value as! String, "sample@gmail.com", "Text field value is not correct")
+        sleep(2)
+        
+//        let passwordPredicate = NSPredicate(format: "")
+//        let passwordTextField = app.textFields.element(matching: passwordPredicate)
+//        let passwordTextField = app.textFields["textfieldPassword"]
+//        XCTAssertTrue(passwordTextField.exists, "Text field doesn't exist")
+        
+        let tfPass = app.textFields["passwordTF"]
+        XCTAssertTrue(tfPass.exists, "Text field doesn't exist")
+        
+    }
+}
+
+extension XCUIElement {
+    func clearText(andReplaceWith newText:String? = nil) {
+        tap()
+        press(forDuration: 1.0)
+        var select = XCUIApplication().menuItems["Select All"]
+
+        if !select.exists {
+            select = XCUIApplication().menuItems["Select"]
+        }
+        //For empty fields there will be no "Select All", so we need to check
+        if select.waitForExistence(timeout: 0.5), select.exists {
+            select.tap()
+            typeText(String(XCUIKeyboardKey.delete.rawValue))
+        } else {
+            tap()
+        }
+        if let newVal = newText {
+            typeText(newVal)
+        }
+    }
 }

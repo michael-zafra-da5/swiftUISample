@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel:LoginViewModel
     @State var email = ""
     @State var password = ""
@@ -19,11 +20,19 @@ struct LoginView: View {
                 
                 VStack() {
                     VStack {
-                        Image("logo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 128,
-                                   height: 128)
+                        if colorScheme == .dark {
+                            Image("logo_dark")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 128,
+                                       height: 128)
+                        } else {
+                            Image("logo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 128,
+                                       height: 128)
+                        }
                         
                         Spacer()
                             .frame(height: 62.0)
@@ -37,6 +46,7 @@ struct LoginView: View {
                                     .textFieldStyle(.roundedBorder)
                                     .multilineTextAlignment(.leading)
                                     .autocapitalization(.none)
+                                    .accessibility(identifier: "emailTF")
                                 
                                 Spacer()
                                     .frame(height: 18.0)
@@ -48,6 +58,7 @@ struct LoginView: View {
                                     .textFieldStyle(.roundedBorder)
                                     .multilineTextAlignment(.leading)
                                     .autocapitalization(.none)
+                                    .accessibility(identifier: "passwordTF")
                                 
                                 Spacer()
                                     .frame(height: 24.0)
@@ -86,7 +97,7 @@ struct LoginView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity) // 1
-                .background(Color.init(hex: "#66b3ff"))
+                .background(colorScheme == .dark ? Color.init(hex: "#16537E") : (Color.init(hex: "#66b3ff")))
                 .alert(item: $viewModel.alertItem) { show in
                     Alert(title: Text(show.title), message: Text(show.message), dismissButton: .default(Text("OK")))
                 }
@@ -95,10 +106,10 @@ struct LoginView: View {
     }
 }
 
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let viewModel = LoginViewModel()
-//        LoginView()
-//            .environmentObject(viewModel)
-//    }
-//}
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = LoginViewModel()
+        LoginView()
+            .environmentObject(viewModel)
+    }
+}
