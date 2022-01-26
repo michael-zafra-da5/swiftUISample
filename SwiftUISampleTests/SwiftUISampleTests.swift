@@ -33,4 +33,26 @@ class SwiftUISampleTests: XCTestCase {
         }
     }
 
+    func testLoginViaFirebase() throws {
+        let viewModel = LoginViewModel()
+        
+        let exp = self.expectation(description: "Waiting for async operation")
+        viewModel.validate(email: "sample@gmail.com", password: "123456", { result in
+            XCTAssertEqual(result, true, "Not Registered")
+            exp.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testUnRegLoginViaFirebase() throws {
+        let viewModel = LoginViewModel()
+        
+        let exp = self.expectation(description: "Waiting for async operation")
+        viewModel.validate(email: "aaa@gmail.com", password: "123456", { result in
+            XCTAssertEqual(result, true, "Not Registered")
+            exp.fulfill()
+        })
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
 }

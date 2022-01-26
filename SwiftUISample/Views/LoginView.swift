@@ -64,7 +64,18 @@ struct LoginView: View {
                                     .frame(height: 24.0)
                                 
                                 Button {
-                                    viewModel.validate(email: email, password: password)
+                                    viewModel.validate(email: email, password: password, { success in
+                                        if success {
+                                            print("Login")
+                                            //Open next page
+                                            self.viewModel.openHomePage = true
+                                        } else {
+                                            print("Fail")
+                                            //Display Alert
+                                            self.viewModel.alertItem = AlertItem(title: "Error", message: "Invalid Login")
+                                            self.viewModel.showAlert = true
+                                        }
+                                    })
                                 } label: {
                                     Text("Login")
                                         .foregroundColor(.white)

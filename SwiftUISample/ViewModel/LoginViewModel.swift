@@ -17,19 +17,52 @@ class LoginViewModel: ObservableObject {
     @Published var showAlert = false
     @Published var alertItem: AlertItem?
     
-    func validate(email:String, password:String) {
+    @Published var isRegistered = false
+    
+    
+    func validate(email:String, password:String, _ completion:@escaping (_ success:Bool) -> Void) {
         if email == "" || password == "" {
-            self.alertItem = AlertItem(title: "Error", message: "Email or Password is required")
-            self.showAlert = true
+            completion(false)
             return
         }
         
-        loginViaFirebase(email: email, password: password)
+//        loginViaFirebase(email: email, password: password)
+        loginViaFirebase(email: email, password: password, { success in
+            completion(success)
+        })
     }
     
-    private func loginViaFirebase(email:String, password:String) {
+//    private func loginViaFirebase(email:String, password:String) {
+//        let db = Firestore.firestore()
+//        let userRef = db.collection("users")
+//        userRef.whereField("email", isEqualTo: email)
+//            .whereField("password", isEqualTo: password)
+//            .getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                    self.isRegistered = true
+//                }
+//
+//                if self.isRegistered {
+//                    print("Login")
+//                    //Open next page
+//                    self.openHomePage = true
+//                } else {
+//                    //Display Alert
+//                    self.alertItem = AlertItem(title: "Error", message: "Invalid Login")
+//                    self.showAlert = true
+//                }
+//            }
+//        }
+//    }
+    
+    //handler: @escaping () -> Void
+    //handler: @escaping (Result<Data?, Error>) -> Void
+    private func loginViaFirebase(email:String, password:String, _ completion:@escaping (_ success:Bool) -> Void) {
         let db = Firestore.firestore()
-        var isRegistered = false
         let userRef = db.collection("users")
         userRef.whereField("email", isEqualTo: email)
             .whereField("password", isEqualTo: password)
@@ -39,19 +72,12 @@ class LoginViewModel: ObservableObject {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    isRegistered = true
+                    self.isRegistered = true
                 }
                 
-                if isRegistered {
-                    print("Login")
-                    //Open next page
-                    self.openHomePage = true
-                } else {
-                    //Display Alert
-                    self.alertItem = AlertItem(title: "Error", message: "Invalid Login")
-                    self.showAlert = true
-                }
+                completion(self.isRegistered)
             }
         }
     }
+    
 }
