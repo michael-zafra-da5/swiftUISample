@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-struct Animal: Identifiable {
-    var id = UUID()
+struct Animal: Hashable {
     let name: String
 }

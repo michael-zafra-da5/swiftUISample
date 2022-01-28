@@ -52,8 +52,17 @@ struct ContentView: View {
             .animation(.easeIn, value: angle)
             
             if viewModel.showList {
-                List(viewModel.animals) { animal in
-                    AnimalRow(animal: animal)
+//                List(viewModel.animals) { animal in
+//                    AnimalRow(animal: animal)
+//                }
+//                .listStyle(.grouped)
+                
+                List{
+                    ForEach(viewModel.animals, id: \.self) { animal in
+//                        let animal = viewModel.animals[index]
+                        AnimalRow(animal: animal)
+                    }
+                    .onDelete(perform: viewModel.removeRows)
                 }
                 .listStyle(.grouped)
             } else {
@@ -63,8 +72,8 @@ struct ContentView: View {
                         HStack(alignment: .center) {
                             if #available(iOS 15.0, *) {
                                 AsyncImage(url: URL(string:user.avatar))
-                                .cornerRadius(180.0/2)
-                                .frame(width: 180.0, height: 180.0)
+                                    .cornerRadius(180.0/2)
+                                    .frame(width: 180.0, height: 180.0)
                             } else {
                                 ImageView(withURL: user.avatar)
                             }
@@ -90,12 +99,12 @@ struct ContentView: View {
                 result in
                 switch result {
                 case .success(let data):
-                  print("we have new data!")
+                    print("we have new data!")
                     viewModel.readVersion(data: data)
                 case .failure(let error):
-                  print("we have an error! \(error)")
+                    print("we have an error! \(error)")
                 }
-              })
+            })
         }
     }
     

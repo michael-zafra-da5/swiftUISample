@@ -21,6 +21,15 @@ class HomeViewModel: ObservableObject {
         Animal(name: "Dog")
     ]
     
+    @Published var animalsName = [
+       "Cow",
+       "Horse",
+       "Sheep",
+       "Camel",
+       "Goat",
+       "Dog"
+    ]
+    
     @Published var users:[UserData] = []
     private var cancellable: AnyCancellable?
     private var urlSession = URLSession.shared
@@ -47,6 +56,14 @@ class HomeViewModel: ObservableObject {
         self.users = users
     }
     
+    func removeRows(at offsets: IndexSet) {
+        let beforeUpdate = animals
+        animals.remove(atOffsets: offsets)
+        print("beforeUpdate: \(beforeUpdate)")
+        print("updated: \(animals)")
+        let difference = animals.difference(from: beforeUpdate)
+        print("difference: \(difference.last?.name ?? "")")
+    }
     
     /// This function will response the response data for the given `page`.
     ///
