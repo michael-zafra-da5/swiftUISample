@@ -99,7 +99,7 @@ struct LoginView: View {
                     
                     let homeViewModel = HomeViewModel()
                     NavigationLink(
-                        destination: ContentView().environmentObject(homeViewModel)
+                        destination: ContentView(email: email, testing: "").environmentObject(homeViewModel)
                             .navigationBarTitle("")
                             .navigationBarHidden(true),
                         isActive: $viewModel.openHomePage

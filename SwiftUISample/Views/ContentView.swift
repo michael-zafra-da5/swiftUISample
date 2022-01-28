@@ -12,6 +12,9 @@ struct ContentView: View {
     @State private var scale: CGFloat = 1
     @State private var angle: Double = 0
     
+    @State var email: String
+    @State var testing: String
+    
     var body: some View {
         NavigationView {
             VStack() {
@@ -30,10 +33,17 @@ struct ContentView: View {
     
     private func content() -> some View {
         return VStack {
+            
+            TextField("Email", text: $email)
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.leading)
+                .autocapitalization(.none)
+                .accessibility(identifier: "emailTF")
+            
             Button {
                 scale += 1
                 angle += 45
-                self.viewModel.buttonTap()
+                self.viewModel.buttonTap(value:email)
             } label: {
                 //                Text("Update")
                 Image("send")
@@ -134,6 +144,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(HomeViewModel())
+        ContentView(email: "preview@gmail.com", testing: "").environmentObject(HomeViewModel())
     }
 }

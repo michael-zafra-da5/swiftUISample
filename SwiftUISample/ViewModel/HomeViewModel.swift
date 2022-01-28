@@ -41,8 +41,8 @@ class HomeViewModel: ObservableObject {
         
     }
     
-    func buttonTap() {
-        print("button Tap")
+    func buttonTap(value:String) {
+        print("button Tap \(value)")
         showList = !showList
     }
     
