@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import Firebase
+import UserNotifications
+import AVFoundation
 
 class LoginViewModel: ObservableObject {
     
@@ -18,6 +20,8 @@ class LoginViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     
     @Published var isRegistered = false
+    
+    @Published var cameraPermissionGranted = false
     
     
     func validate(email:String, password:String, _ completion:@escaping (_ success:Bool) -> Void) {
@@ -80,4 +84,42 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { accessGranted in
+            DispatchQueue.main.async {
+                self.cameraPermissionGranted = accessGranted
+            }
+        })
+    }
+    
+    func requestNotificationAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func sendNotification(title:String = "", message:String) {
+        print("sendNotification")
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = message
+        content.sound = UNNotificationSound.default
+
+        // show this notification one second from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        // add our notification request
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
+    }
 }

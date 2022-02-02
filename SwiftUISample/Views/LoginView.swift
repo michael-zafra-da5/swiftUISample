@@ -20,19 +20,25 @@ struct LoginView: View {
                 
                 VStack() {
                     VStack {
-                        if colorScheme == .dark {
-                            Image("logo_dark")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 128,
-                                       height: 128)
-                        } else {
-                            Image("logo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 128,
-                                       height: 128)
-                        }
+//                        if colorScheme == .dark {
+//                            Image("logo_dark")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: 128,
+//                                       height: 128)
+//                        } else {
+//                            Image("logo")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: 128,
+//                                       height: 128)
+//                        }
+                        
+                        SVGUIView()
+                            .background(colorScheme == .dark ? Color.init(hex: "#16537E") : (Color.init(hex: "#66b3ff")))
+                            .frame(width: 128,
+                                   height: 128)
+                        
                         
                         Spacer()
                             .frame(height: 62.0)
@@ -68,6 +74,7 @@ struct LoginView: View {
                                         if success {
                                             print("Login")
                                             //Open next page
+                                            self.viewModel.sendNotification(title:"Login Successful", message: "You are now logged in!")
                                             self.viewModel.openHomePage = true
                                         } else {
                                             print("Fail")
@@ -113,14 +120,18 @@ struct LoginView: View {
                     Alert(title: Text(show.title), message: Text(show.message), dismissButton: .default(Text("OK")))
                 }
             }
+            .onAppear {
+                viewModel.requestNotificationAuthorization()
+                viewModel.requestCameraPermission()
+            }
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = LoginViewModel()
-        LoginView()
-            .environmentObject(viewModel)
-    }
-}
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let viewModel = LoginViewModel()
+//        LoginView()
+//            .environmentObject(viewModel)
+//    }
+//}

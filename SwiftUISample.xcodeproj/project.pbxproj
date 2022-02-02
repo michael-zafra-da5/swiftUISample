@@ -33,6 +33,14 @@
 		FF93399F27964B4F00CE47CB /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF93399E27964B4F00CE47CB /* ListResponse.swift */; };
 		FF9339A1279659A500CE47CB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9339A0279659A400CE47CB /* ImageLoader.swift */; };
 		FF9339A32796631A00CE47CB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9339A22796631A00CE47CB /* ImageView.swift */; };
+		FFA2AC5727A3BE61009A5F87 /* loading-text.css in Resources */ = {isa = PBXBuildFile; fileRef = FFA2AC5127A3BE5F009A5F87 /* loading-text.css */; };
+		FFA2AC5827A3BE61009A5F87 /* loading-text.svg in Resources */ = {isa = PBXBuildFile; fileRef = FFA2AC5227A3BE5F009A5F87 /* loading-text.svg */; };
+		FFA2AC5927A3BE61009A5F87 /* image.svg in Resources */ = {isa = PBXBuildFile; fileRef = FFA2AC5327A3BE5F009A5F87 /* image.svg */; };
+		FFA2AC5A27A3BE61009A5F87 /* logo2.svg in Resources */ = {isa = PBXBuildFile; fileRef = FFA2AC5427A3BE5F009A5F87 /* logo2.svg */; };
+		FFA2AC5B27A3BE61009A5F87 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = FFA2AC5527A3BE5F009A5F87 /* logo.svg */; };
+		FFA2AC5C27A3BE61009A5F87 /* Cow-01.svg in Resources */ = {isa = PBXBuildFile; fileRef = FFA2AC5627A3BE5F009A5F87 /* Cow-01.svg */; };
+		FFA2AC5E27A3BF3F009A5F87 /* logo-animation.css in Resources */ = {isa = PBXBuildFile; fileRef = FFA2AC5D27A3BF3F009A5F87 /* logo-animation.css */; };
+		FFA2AC6027A3BFDF009A5F87 /* SVGUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA2AC5F27A3BFDF009A5F87 /* SVGUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,10 +93,19 @@
 		FF324EBA27951973007F4B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF324EBC27951FDD007F4B5B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FF324EBE27953AF0007F4B5B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FF4BECA627AA1CE0006D73AF /* SwiftUISample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUISample.entitlements; sourceTree = "<group>"; };
 		FF93399E27964B4F00CE47CB /* ListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
 		FF9339A0279659A400CE47CB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		FF9339A22796631A00CE47CB /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		FF946951CF8B08C84293E75D /* Pods_SwiftUISample_SwiftUISampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUISample_SwiftUISampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFA2AC5127A3BE5F009A5F87 /* loading-text.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "loading-text.css"; sourceTree = "<group>"; };
+		FFA2AC5227A3BE5F009A5F87 /* loading-text.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "loading-text.svg"; sourceTree = "<group>"; };
+		FFA2AC5327A3BE5F009A5F87 /* image.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = image.svg; sourceTree = "<group>"; };
+		FFA2AC5427A3BE5F009A5F87 /* logo2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = logo2.svg; sourceTree = "<group>"; };
+		FFA2AC5527A3BE5F009A5F87 /* logo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logo.svg; sourceTree = "<group>"; };
+		FFA2AC5627A3BE5F009A5F87 /* Cow-01.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Cow-01.svg"; sourceTree = "<group>"; };
+		FFA2AC5D27A3BF3F009A5F87 /* logo-animation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "logo-animation.css"; sourceTree = "<group>"; };
+		FFA2AC5F27A3BFDF009A5F87 /* SVGUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +184,8 @@
 		FF324E7F2794FD30007F4B5B /* SwiftUISample */ = {
 			isa = PBXGroup;
 			children = (
+				FF4BECA627AA1CE0006D73AF /* SwiftUISample.entitlements */,
+				FFA2AC5027A3BE5F009A5F87 /* Resources */,
 				FF324EAF27951497007F4B5B /* Utils */,
 				FF324EAE27950D1E007F4B5B /* ViewModel */,
 				FF324EAD27950D18007F4B5B /* Views */,
@@ -223,6 +242,7 @@
 				FF324EBC27951FDD007F4B5B /* DetailView.swift */,
 				FF9339A22796631A00CE47CB /* ImageView.swift */,
 				FF054D5B2797DEEE00CC1C9E /* LoginView.swift */,
+				FFA2AC5F27A3BFDF009A5F87 /* SVGUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +275,20 @@
 				FF324EB1279514B0007F4B5B /* montserrat_medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FFA2AC5027A3BE5F009A5F87 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FFA2AC5D27A3BF3F009A5F87 /* logo-animation.css */,
+				FFA2AC5127A3BE5F009A5F87 /* loading-text.css */,
+				FFA2AC5227A3BE5F009A5F87 /* loading-text.svg */,
+				FFA2AC5327A3BE5F009A5F87 /* image.svg */,
+				FFA2AC5427A3BE5F009A5F87 /* logo2.svg */,
+				FFA2AC5527A3BE5F009A5F87 /* logo.svg */,
+				FFA2AC5627A3BE5F009A5F87 /* Cow-01.svg */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,9 +404,16 @@
 			files = (
 				FF054D582797DB2D00CC1C9E /* GoogleService-Info.plist in Resources */,
 				FF324E882794FD32007F4B5B /* Preview Assets.xcassets in Resources */,
+				FFA2AC5927A3BE61009A5F87 /* image.svg in Resources */,
 				FF324E852794FD32007F4B5B /* Assets.xcassets in Resources */,
+				FFA2AC5A27A3BE61009A5F87 /* logo2.svg in Resources */,
 				FF324EB2279514B0007F4B5B /* montserrat_medium.ttf in Resources */,
 				FF324EB527951601007F4B5B /* qbettercomicsan.ttf in Resources */,
+				FFA2AC5E27A3BF3F009A5F87 /* logo-animation.css in Resources */,
+				FFA2AC5B27A3BE61009A5F87 /* logo.svg in Resources */,
+				FFA2AC5827A3BE61009A5F87 /* loading-text.svg in Resources */,
+				FFA2AC5C27A3BE61009A5F87 /* Cow-01.svg in Resources */,
+				FFA2AC5727A3BE61009A5F87 /* loading-text.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +581,7 @@
 				FF324E832794FD30007F4B5B /* ContentView.swift in Sources */,
 				FF054D5C2797DEEE00CC1C9E /* LoginView.swift in Sources */,
 				FF324EBD27951FDD007F4B5B /* DetailView.swift in Sources */,
+				FFA2AC6027A3BFDF009A5F87 /* SVGUIView.swift in Sources */,
 				FF054D602797E3C300CC1C9E /* UIScreenExt.swift in Sources */,
 				FF93399F27964B4F00CE47CB /* ListResponse.swift in Sources */,
 				FF324E812794FD30007F4B5B /* SwiftUISampleApp.swift in Sources */,
@@ -707,12 +749,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftUISample/SwiftUISample.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUISample/Preview Content\"";
-				DEVELOPMENT_TEAM = 3RDF37LU5D;
+				DEVELOPMENT_TEAM = 3GCFJ6RJM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "/Users/michaelangelozafra/workspace-ios/SwiftUISample/SwiftUISample/Info.plist";
@@ -741,12 +784,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftUISample/SwiftUISample.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUISample/Preview Content\"";
-				DEVELOPMENT_TEAM = 3RDF37LU5D;
+				DEVELOPMENT_TEAM = 3GCFJ6RJM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "/Users/michaelangelozafra/workspace-ios/SwiftUISample/SwiftUISample/Info.plist";

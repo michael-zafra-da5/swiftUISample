@@ -8,6 +8,8 @@ target 'SwiftUISample' do
   # Pods for SwiftUISample
   pod 'Firebase/Firestore'
   pod 'FirebaseUI'
+  
+  pod 'Elephant'
 
   target 'SwiftUISampleTests' do
     inherit! :search_paths
